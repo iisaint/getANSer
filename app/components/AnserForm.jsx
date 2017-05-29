@@ -15,8 +15,8 @@ var AnserForm = React.createClass({
         return (
             <div>
                 <form onSubmit={this.onFormSumit}>
-                <input type="text" ref="address"/>
-                <button>Get Anser </button>
+                    <input type="text" ref="address" placeholder="請輸入地址 ex 新竹市光復路一段"/>
+                    <button className="button expanded hollow">Get Anser</button>
                 </form>
             </div>
         );
