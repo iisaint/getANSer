@@ -25,7 +25,7 @@ var AnserForm = React.createClass({
             if (isImgShow) {
                 return (
                     <div className="columns medium-10 large-6 small-centered">
-                <img src={require('../assets/img/index.png')}/>
+                <img className="page-img" src={require('../assets/img/index.png')}/>
                 </div>
                 )
             } else {
@@ -39,7 +39,7 @@ var AnserForm = React.createClass({
                 <div className="columns medium-10 large-6 small-centered">
                 <form onSubmit={this.onFormSumit}>
                     <div className="columns medium-10 large-10 small-centered">
-                    <input type="text" ref="address" placeholder="請輸入地址 ex 新竹市光復路一段"/>
+                    <input type="search" ref="address" placeholder="請輸入地址 ex 新竹市光復路一段"/>
                     </div>
                     <div className="columns medium-4 large-4 small-centered">
                     <button className="button expanded hollow">Get Anser</button>

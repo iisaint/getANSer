@@ -32,7 +32,8 @@ module.exports = {
             Team: 'app/components/Team.jsx',
             AnserForm: 'app/components/AnserForm.jsx',
             AnserMessage: 'app/components/AnserMessage.jsx',
-            getAnser: 'app/api/getAnser.jsx'
+            getAnser: 'app/api/getAnser.jsx',
+            applicationStyles: 'app/styles/app.css'
         },
         extensions: ['', '.js', '.jsx']
     },
