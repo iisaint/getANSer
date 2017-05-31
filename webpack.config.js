@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
     entry: [
@@ -17,7 +18,8 @@ module.exports = {
     ],
     output: {
         path: __dirname,
-        filename: './public/bundle.js'
+        filename: './public/bundle.js',
+        publicPath: '/'
     },
     resolve: {
         root: __dirname,
@@ -35,13 +37,19 @@ module.exports = {
     },
     module: {
         loaders: [{
-            loader: 'babel-loader',
-            query: {
-                presets: ['react', 'es2015']
+                loader: 'babel-loader',
+                query: {
+                    presets: ['react', 'es2015']
+                },
+                test: /\.jsx?$/,
+                exclude: /(node_modules|bower_components)/
             },
-            test: /\.jsx?$/,
-            exclude: /(node_modules|bower_components)/
-        }]
+            {
+                test: /\.(jpe?g|png|gif|svg)$/,
+                loader: 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]',
+                exclude: /node_modules/
+            }
+        ]
     },
     devtool: 'cheap-module-eval-source-map'
 };
