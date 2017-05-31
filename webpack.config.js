@@ -17,9 +17,10 @@ module.exports = {
         })
     ],
     output: {
-        path: __dirname,
-        filename: './public/bundle.js',
-        publicPath: '/'
+        //path: __dirname,
+        path: 'public',
+        filename: 'bundle.js'
+
     },
     resolve: {
         root: __dirname,
