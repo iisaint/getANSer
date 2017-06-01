@@ -8,6 +8,7 @@ var Team = require('Team');
 
 // Load foundation
 require('style!css!foundation-sites/dist/css/foundation.min.css');
+//require('style!css!foundation-sites/dist/css/foundation.css')
 $(document).foundation();
 
 // App css

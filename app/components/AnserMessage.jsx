@@ -2,7 +2,7 @@ var React = require('react');
 
 // google static maps api key
 var mapApiURL = 'https://maps.googleapis.com/maps/api/staticmap?center=';
-var mapZoomSize = '&zoom=15&size=640x400&maptype=roadmap&&markers=color:blue%7Clabel:S%7C';
+var mapZoomSize = '&zoom=17&size=640x400&maptype=roadmap&&markers=color:red%7Clabel:S%7C';
 var mapApiKey = '&key=AIzaSyBrcFzsCWg3tdoyQ0Ca40BwPJSUFNxFlFk';
 
 
@@ -26,6 +26,11 @@ var AnserMessage = React.createClass({
                         <div className="card-info-content">
                             <h3 className="lead">候選地址</h3>
                             <p>{anserObj.候選地址}</p>
+                            <span className="badge success">V</span>
+                            <span> 通過地址校正     </span>
+                            <span className="badge warning">X</span>
+                            <span> 內政部地址查詢</span>
+                            <br/>
                             <img src={mapApiURL + anserObj.候選地址 + mapZoomSize + anserObj.候選地址 + mapApiKey}/>
                         </div>
                     </div>
