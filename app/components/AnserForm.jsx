@@ -42,7 +42,7 @@ var AnserForm = React.createClass({
         function renderSearchBar () {
             if (isSearched) {
                 return (
-                    <div className="columns medium-10 large-10 small-centered input-group input-group-rounded">
+                    <div className="columns medium-10 large-10 small-centered input-group">
                             <input className="input-group-field" type="search" ref="address" placeholder="請輸入地址 ex 新竹市光復路一段1號"/>
                         <div className="input-group-button">
                             <button className="button secondary">Get Anser</button>
