@@ -36,7 +36,7 @@ var Anser = React.createClass({
 
         function renderMessage () {
             if (isLoading) {
-                return <h3>get ANSering...</h3>;
+                return <div className="center"><h3>get ANSering...</h3></div>;
             } else if (anser) {
                 return <AnserMessage anser={anser} />;
             }
