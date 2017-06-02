@@ -11,22 +11,39 @@ var React = require('react');
 var About = (props) => {
     return (
         <section className="marketing-site-three-up">
-  <h2 className="marketing-site-three-up-headline">Furry, Reliable, Cuddly</h2>
+  <h2 className="marketing-site-three-up-headline">ANSer特色說明</h2>
   <div className="row medium-unstack">
-    <div className="columns medium-4 large-4 small-centered">
-      <img src={require('../assets/img/seo_place_optimization.png')}/>
+    <div className="columns medium-4 large-4 small-4">
+      <img src={require('../assets/img/correction.png')}/>
       <h4 className="marketing-site-three-up-title">地址校正</h4>
-      <p className="marketing-site-three-up-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sint, voluptatibus eaque natus ad eius.</p>
+      <p className="marketing-site-three-up-desc">校正缺漏字與錯別字之地址</p>
     </div>
-    <div className="columns medium-4 large-4 small-centered">
-      <img src={require('../assets/img/SEO_favorite.png')}/>
+    <div className="columns medium-4 large-4 small-4">
+      <img src={require('../assets/img/normalization.png')}/>
+      <h4 className="marketing-site-three-up-title">地址正規化</h4>
+      <p className="marketing-site-three-up-desc">將地址正規化為完整格式 ─ 縣市，鄉鎮區，村里，路街道，巷弄號</p>
+    </div>
+    <div className="columns medium-4 large-4 small-4">
+      <img src={require('../assets/img/check.png')}/>
       <h4 className="marketing-site-three-up-title">地址確認</h4>
-      <p className="marketing-site-three-up-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sint, voluptatibus eaque natus ad eius.</p>
+      <p className="marketing-site-three-up-desc">確認地址是否為有效地址</p>
     </div>
-    <div className="columns medium-4 large-4 small-centered">
-      <img src={require('../assets/img/Programming_Development_Api.png')}/>
-      <h4 className="marketing-site-three-up-title">Open API</h4>
-      <p className="marketing-site-three-up-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi sint, voluptatibus eaque natus ad eius.</p>
+  </div>
+  <div className="row medium-unstack">
+    <div className="columns medium-4 large-4 small-4">
+      <img src={require('../assets/img/worldwide.png')}/>
+      <h4 className="marketing-site-three-up-title">校正範圍廣</h4>
+      <p className="marketing-site-three-up-desc">可校正臺澎金馬地區之地址</p>
+    </div>
+    <div className="columns medium-4 large-4 small-4">
+      <img src={require('../assets/img/largeDB.png')}/>
+      <h4 className="marketing-site-three-up-title">龐大資料庫</h4>
+      <p className="marketing-site-three-up-desc">查詢與比對巨量資料，增加地址校正準確度</p>
+    </div>
+    <div className="columns medium-4 large-4 small-4">
+      <img src={require('../assets/img/prevention.png')}/>
+      <h4 className="marketing-site-three-up-title">預防損失</h4>
+      <p className="marketing-site-three-up-desc">預防因地址錯誤而造成生命、時間、金錢等重大損失</p>
     </div>
   </div>
 </section>

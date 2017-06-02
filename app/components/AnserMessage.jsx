@@ -81,7 +81,7 @@ var AnserMessage = React.createClass({
                             <h3>土地地址 (痾....吃土了)</h3>
                         </div>
                         <div className="columns medium-12 large-12 small-centered">
-                            <h4>{anserObj.results}</h4>
+                            <h4>{anserObj.results[0]}</h4>
                         </div>
                     </div>
                 )
