@@ -36,7 +36,11 @@ var Anser = React.createClass({
 
         function renderMessage () {
             if (isLoading) {
-                return <div className="center"><h3>get ANSering...</h3></div>;
+                return (
+                    <div className="columns medium-10 large-6 small-centered">
+                        <h3>get ANSering...</h3>
+                    </div>
+                );
             } else if (anser) {
                 return <AnserMessage anser={anser} />;
             }
