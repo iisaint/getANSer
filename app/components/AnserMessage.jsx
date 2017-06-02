@@ -13,10 +13,10 @@ var AnserMessage = React.createClass({
         var anserObj = JSON.parse(anser);
 
         function renderCard() {
-            var addrArray =  JSON.stringify(anserObj.候選地址).split('\;');
 
-            var addrComponents = addrArray.map((addr) => {
-                if (addrArray.length == 1) {
+            var resultItems = anserObj.results.map((item) => {
+                var addr = item.city + item.region + item.village + item.road + item.remainder;
+                if (anserObj.results.length == 1) {
                     return (
                         <div className="columns medium-6 large-6 small-centered">
                     <div className="card-info primary">
@@ -38,6 +38,7 @@ var AnserMessage = React.createClass({
                     </div>
                     )
                 } else {
+                    var addr = item.city + item.region + item.village + item.road + item.remainder;
                     return (
                         <div className="columns medium-4 large-4 small-4">
                         <div className="card-info primary">
@@ -61,11 +62,11 @@ var AnserMessage = React.createClass({
                 }
             });
 
-            return <div>{addrComponents}</div>
+            return <div>{resultItems}</div>
         }
 
         function renderResult() {
-            if (anserObj.地址類別 === 'P') {
+            if (anserObj.type === 'P') {
                 return (
                     <div className="row">
                         <div className="columns medium-12 large-12 small-12">
@@ -73,18 +74,18 @@ var AnserMessage = React.createClass({
                         </div>
                     </div>
                 )
-            } else if (anserObj.地址類別 === 'L') {
+            } else if (anserObj.type === 'L') {
                 return (
                     <div className="row">
                         <div className="columns medium-10 large-6 small-centered">
                             <h3>土地地址 (痾....吃土了)</h3>
                         </div>
                         <div className="columns medium-12 large-12 small-centered">
-                            <h4>{anserObj.候選地址}</h4>
+                            <h4>{anserObj.results}</h4>
                         </div>
                     </div>
                 )
-            } else if (anserObj.地址類別 === 'U') {
+            } else if (anserObj.type === 'U') {
                 return (
                     <div className="row">
                         <div className="columns medium-10 large-6 small-centered">
