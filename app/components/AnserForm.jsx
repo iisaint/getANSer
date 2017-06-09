@@ -1,9 +1,10 @@
 var React = require('react');
+var {Link} = require('react-router');
 
 var AnserForm = React.createClass({
     getInitialState: function () {
         return {
-            isImgShow: true,
+            isLogoShow: true,
             isSearched: false
         }
     },
@@ -11,7 +12,7 @@ var AnserForm = React.createClass({
         e.preventDefault();
 
         this.setState({
-            isImgShow: false,
+            isLogoShow: false,
             isSearched: true
         });
 
@@ -25,13 +26,13 @@ var AnserForm = React.createClass({
         }
     },
     render: function () {
-        var {isImgShow, isSearched} = this.state;
+        var {isLogoShow, isSearched} = this.state;
 
         function renderImg () {
-            if (isImgShow) {
+            if (isLogoShow) {
                 return (
                     <div className="columns medium-10 large-6 small-centered">
-                        <img className="page-img" src={require('../assets/img/index.png')}/>
+                        <img className="page-img" src={require('../assets/img/tp101-3.gif')}/>
                     </div>
                 )
             } else {
@@ -42,10 +43,19 @@ var AnserForm = React.createClass({
         function renderSearchBar () {
             if (isSearched) {
                 return (
-                    <div className="columns medium-10 large-10 small-centered input-group">
-                            <input className="input-group-field" type="search" ref="address" placeholder="請輸入地址 ex 新竹市光復路一段1號"/>
-                        <div className="input-group-button">
-                            <button className="button secondary">Get Anser</button>
+                    <div className="row">
+                        <div className="columns medium-3 large-3 small-3">
+                            <a href="/">
+                            <img width="100" height="100" src={require('../assets/img/anser_logo.png')}/>
+                            </a>
+                        </div>
+                        <div className="columns medium-9 large-9 small-9"> 
+                            <div className="input-group">
+                                <input className="input-group-field" type="search" ref="address" placeholder="請輸入地址 ex 新竹市光復路一段1號"/>
+                            <div className="input-group-button">
+                                <button className="button secondary">Get Anser</button>
+                            </div>
+                            </div>
                         </div>
                     </div>
                 )

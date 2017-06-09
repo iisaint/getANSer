@@ -42,8 +42,8 @@ var About = (props) => {
     </div>
     <div className="columns medium-4 large-4 small-4">
       <img src={require('../assets/img/prevention.png')}/>
-      <h4 className="marketing-site-three-up-title">預防損失</h4>
-      <p className="marketing-site-three-up-desc">預防因地址錯誤而造成生命、時間、金錢等重大損失</p>
+      <h4 className="marketing-site-three-up-title">Open API</h4>
+      <p className="marketing-site-three-up-desc">提供易於跨平台資料的整合，促進開放式創新</p>
     </div>
   </div>
 </section>
