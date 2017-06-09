@@ -69,24 +69,30 @@ var AnserMessage = React.createClass({
                     } else {
                         var addr = item.city + item.region + item.village + item.road + item.remainder;
                         return (
-                                <div key={index} className="columns medium-5 large-5 small-centered">
-                                        <li>{addr}</li>
-                                </div>
+                            <tr key={index}>
+                                <td>{addr}</td>
+                            </tr>
                         );
                     }
                 });
-            
+
             if (resultItems.length == 1) {
                 return (
                     <div>{resultItems}</div>
                 )
             } else {
                 return (
-                    <div className="columns medium-12 large-12 small-centered">
-                        <div className="columns medium-3 large-3 small-centered">
-                        <h3>候選地址</h3>
-                        </div>
-                        {resultItems}
+                    <div className="columns medium-6 large-6 small-centered">
+                        <table className="hover">
+                            <thead>
+                                <tr>
+                                    <th>候選地址</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {resultItems}
+                            </tbody>
+                        </table>
                     </div>
                 )
             }
@@ -106,8 +112,29 @@ var AnserMessage = React.createClass({
                 var land = anserObj.results[0].city + anserObj.results[0].region + anserObj.results[0].section + anserObj.results[0].subsection + anserObj.results[0].land_num;
                 return (
                     <div className="row">
-                        <div className="columns medium-6 large-6 small-centered">
-                            <h4>{land}</h4>
+                        <div className="columns medium-12 large-12 small-centered">
+                            <table className="hover">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>縣市</th>
+                                    <th>鄉鎮區</th>
+                                    <th>段</th>
+                                    <th>小段</th>
+                                    <th>地號</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>{anserObj.results[0].city}</td>
+                                    <td>{anserObj.results[0].region}</td>
+                                    <td>{anserObj.results[0].section}</td>
+                                    <td>{anserObj.results[0].subsection}</td>
+                                    <td>{anserObj.results[0].land_num}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                         </div>
                         <div className="columns medium-6 large-6 small-centered">
                             <img className="page-img" src={require('../assets/img/type-L.png')}/>

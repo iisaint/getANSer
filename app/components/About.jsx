@@ -37,13 +37,13 @@ var About = (props) => {
     </div>
     <div className="columns medium-4 large-4 small-4">
       <img src={require('../assets/img/largeDB.png')}/>
-      <h4 className="marketing-site-three-up-title">龐大資料庫</h4>
-      <p className="marketing-site-three-up-desc">查詢與比對巨量資料，增加地址校正準確度</p>
+      <h4 className="marketing-site-three-up-title">開放資料</h4>
+      <p className="marketing-site-three-up-desc">利用開放資料建立校正基準及測試資料</p>
     </div>
     <div className="columns medium-4 large-4 small-4">
       <img src={require('../assets/img/prevention.png')}/>
-      <h4 className="marketing-site-three-up-title">Open API</h4>
-      <p className="marketing-site-three-up-desc">提供易於跨平台資料的整合，促進開放式創新</p>
+      <h4 className="marketing-site-three-up-title">使用方便</h4>
+      <p className="marketing-site-three-up-desc">提供RESTful API及批次處理介面</p>
     </div>
   </div>
 </section>
