@@ -15,7 +15,6 @@ var Anser = React.createClass({
         this.setState({isLoading: true});
 
         getAnser.getAnser(address).then(function (anser) {
-            console.log(anser);
             that.setState({
                 anser: JSON.stringify(anser, undefined, 2),
                 isLoading: false                
@@ -26,10 +25,6 @@ var Anser = React.createClass({
                 isLoading: false
             });
         });
-        // this.setState({
-        //     address: address,
-        //     cAddress: 'xxxxxxx'
-        // });
     },
     render: function () {
         var {isLoading, anser} = this.state;
