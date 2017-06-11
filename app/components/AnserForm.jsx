@@ -19,14 +19,22 @@ var AnserForm = React.createClass({
         var address = this.refs.address.value;
 
         if (address.length > 0) {
-            // this.refs.address.value = '';
-            this
-                .props
-                .onSearch(address);
+            this.refs.address.value = address;
+            this.props.onSearch(address);
+        }
+    },
+    buttonClick: function() {
+        var address = this.refs.address.value;
+
+        if (address.length > 0) {
+            this.refs.address.value = address;
+            this.props.onCompare(address);
         }
     },
     render: function () {
         var {isLogoShow, isSearched} = this.state;
+
+        var that = this;
 
         function renderImg () {
             if (isLogoShow) {
@@ -49,13 +57,16 @@ var AnserForm = React.createClass({
                             <img width="100" height="100" src={require('../assets/img/anser_logo.png')}/>
                             </a>
                         </div>
-                        <div className="columns medium-9 large-9 small-9"> 
+                        <div className="columns medium-8 large-8 small-8"> 
                             <div className="input-group">
                                 <input className="input-group-field" type="search" ref="address" placeholder="請輸入地址 ex 新竹市光復路一段1號"/>
                             <div className="input-group-button">
                                 <button className="button secondary">Get Anser</button>
                             </div>
                             </div>
+                        </div>
+                        <div className="columns medium-1 large-1 small-1">
+                            <button className="button" onClick={that.buttonClick}>Compare</button>
                         </div>
                     </div>
                 )

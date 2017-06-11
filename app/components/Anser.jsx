@@ -2,17 +2,21 @@ var React = require('react');
 var AnserForm = require('AnserForm');
 var AnserMessage = require('AnserMessage');
 var getAnser = require('getAnser');
+var Compare = require('Compare');
 
 var Anser = React.createClass({
     getInitialState: function () {
         return {
-            isLoading: false
+            isLoading: false,
+            isCompare: false
         }
     },
     handleSearch: function (address) {
         var that = this;
         
-        this.setState({isLoading: true});
+        this.setState({
+            isLoading: true
+        });
 
         getAnser.getAnser(address).then(function (anser) {
             that.setState({
@@ -26,8 +30,31 @@ var Anser = React.createClass({
             });
         });
     },
+    handleCompare: function (address) {
+        var that = this;
+        
+        this.setState({
+            isLoading: true,
+            isCompare: true
+        });
+
+        getAnser.getAll(address).then(function (results) {
+            console.log('results = ' + JSON.stringify(results, undefined, 2));
+            that.setState({
+                anser: JSON.stringify(results.anser, undefined, 2),
+                google: JSON.stringify(results.google, undefined, 2),
+                tgos: JSON.stringify(results.tgos, undefined, 2),
+                isLoading: false             
+            });
+        }, function (errorMessage) {
+            alert(errorMessage);
+            that.setState({
+                isLoading: false
+            });
+        });
+    },
     render: function () {
-        var {isLoading, anser} = this.state;
+        var {isLoading, isCompare, anser, google, tgos} = this.state;
 
         function renderMessage () {
             if (isLoading) {
@@ -36,14 +63,16 @@ var Anser = React.createClass({
                         <h3>get ANSering...</h3>
                     </div>
                 );
-            } else if (anser) {
+            } else if (isCompare && anser && google && tgos) {
+                return <Compare anser={anser} google={google} tgos={tgos}/>;
+            } else if (!isCompare && anser) {
                 return <AnserMessage anser={anser} />;
             }
         }
 
         return (
             <div>
-                <AnserForm onSearch={this.handleSearch}/>
+                <AnserForm onSearch={this.handleSearch} onCompare={this.handleCompare}/>
                 {renderMessage()}
             </div>
         );

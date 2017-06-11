@@ -33,7 +33,8 @@ module.exports = {
             AnserForm: 'app/components/AnserForm.jsx',
             AnserMessage: 'app/components/AnserMessage.jsx',
             getAnser: 'app/api/getAnser.jsx',
-            applicationStyles: 'app/styles/app.css'
+            applicationStyles: 'app/styles/app.css',
+            Compare: 'app/components/Compare.jsx'
         },
         extensions: ['', '.js', '.jsx']
     },

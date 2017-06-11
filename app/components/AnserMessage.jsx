@@ -10,22 +10,10 @@ var AnserMessage = React.createClass({
     getInitialState: function () {
         return {isToggled: false}
     },
-    showMap: function (addr) {
-        window.location.href = mapApiURL + addr + mapZoomSize + addr + mapApiKey;
-        /*this.setState({
+    showMap: function () {
+        this.setState({
             isToggled: !this.state.isToggled
         });
-
-        if (!that.state.isToggled) {
-            return (
-                <div></div>
-            );
-        }
-        return (
-            <div className="columns medium-7 large-7 small-centered">
-                <img className="map" src={mapApiURL + addr + mapZoomSize + addr + mapApiKey}/>
-            </div>
-        );*/
     },
     render: function () {
         var that = this;
@@ -70,7 +58,9 @@ var AnserMessage = React.createClass({
                         var addr = item.city + item.region + item.village + item.road + item.remainder;
                         return (
                             <tr key={index}>
-                                <td>{addr}</td>
+                                <td>
+                                    {addr}
+                                </td>
                             </tr>
                         );
                     }
