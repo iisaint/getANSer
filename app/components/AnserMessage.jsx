@@ -24,6 +24,28 @@ var AnserMessage = React.createClass({
 
         var anserObj = JSON.parse(anser);
 
+        function checkExist(anserItem) {
+            if (anserItem.exist) {
+                return (
+                    <div>
+                    <img src={require('../assets/img/Close_Icon_Dark.png')}/>
+                                        <span>
+                                            內政部地址查詢
+                                        </span>
+                    </div>
+                );
+            } else {
+                return (
+                    <div>
+                    <img src={require('../assets/img/Tick_Mark_Dark.png')}/>
+                                        <span>
+                                            內政部地址查詢
+                                        </span>
+                    </div>
+                );
+            }
+        }
+
         function renderCard() {
 
             var resultItems = anserObj
@@ -32,7 +54,7 @@ var AnserMessage = React.createClass({
                     var addr = item.city + item.region + item.village + item.road + item.remainder;
                     if (anserObj.results.length == 1) {
                         return (
-                            <div className="columns medium-6 large-6 small-centered">
+                            <div key={index} className="columns medium-6 large-6 small-centered">
                                 <div className="card-info primary">
                                     <div className="card-info-label">
                                         <div className="card-info-label-text">
@@ -46,9 +68,7 @@ var AnserMessage = React.createClass({
                                         <span>
                                             通過地址校正
                                         </span>
-                                        <img src={require('../assets/img/Close_Icon_Dark.png')}/>
-                                        <span>
-                                            內政部地址查詢</span>
+                                        {checkExist(item)}
                                         <img className="map" src={mapApiURL + addr + mapZoomSize + addr + mapApiKey}/>
                                     </div>
                                 </div>
