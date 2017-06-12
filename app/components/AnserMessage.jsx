@@ -24,8 +24,8 @@ var AnserMessage = React.createClass({
 
         var anserObj = JSON.parse(anser);
 
-        function checkExist(anserItem) {
-            if (anserItem.exist) {
+        function checkExist(isExist) {
+            if (!isExist) {
                 return (
                     <div>
                     <img src={require('../assets/img/Close_Icon_Dark.png')}/>
@@ -68,7 +68,7 @@ var AnserMessage = React.createClass({
                                         <span>
                                             通過地址校正
                                         </span>
-                                        {checkExist(item)}
+                                        {checkExist(anserObj.exist)}
                                         <img className="map" src={mapApiURL + addr + mapZoomSize + addr + mapApiKey}/>
                                     </div>
                                 </div>
