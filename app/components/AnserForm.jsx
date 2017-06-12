@@ -19,7 +19,6 @@ var AnserForm = React.createClass({
         var address = this.refs.address.value;
 
         if (address.length > 0) {
-            this.refs.address.value = address;
             this.props.onSearch(address);
         }
     },
@@ -27,12 +26,11 @@ var AnserForm = React.createClass({
         var address = this.refs.address.value;
 
         if (address.length > 0) {
-            this.refs.address.value = address;
             this.props.onCompare(address);
         }
     },
     render: function () {
-        var {isLogoShow, isSearched} = this.state;
+        var {isLogoShow, isSearched, address} = this.state;
 
         var that = this;
 

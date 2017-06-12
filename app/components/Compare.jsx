@@ -10,6 +10,16 @@ var Compare = React.createClass({
 
         var tgosObj = JSON.parse(tgos);
 
+        function checkEmpty(items) {
+            if (items.length == 0) {
+                return (
+                    <tr><td>查無資料</td></tr>
+                );
+            } else {
+                return items;
+            }
+        }
+
         function renderCard() {
 
             var anserItems = anserObj
@@ -54,7 +64,7 @@ var Compare = React.createClass({
                                 </tr>
                             </thead>
                             <tbody>
-                                {anserItems}
+                                {checkEmpty(anserItems)}
                             </tbody>
                         </table>
                     </div>
@@ -66,7 +76,7 @@ var Compare = React.createClass({
                                 </tr>
                             </thead>
                             <tbody>
-                                {googleItems}
+                                {checkEmpty(googleItems)}
                             </tbody>
                         </table>
                     </div>
@@ -78,7 +88,7 @@ var Compare = React.createClass({
                                 </tr>
                             </thead>
                             <tbody>
-                                {tgosItems}
+                                {checkEmpty(tgosItems)}
                             </tbody>
                         </table>
                     </div>
