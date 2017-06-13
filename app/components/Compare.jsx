@@ -20,12 +20,35 @@ var Compare = React.createClass({
             }
         }
 
+        function checkExist() {
+            if (anserObj.type === 'P') {
+                if (!anserObj.exist) {
+                    return(
+                        <th>ANSer候選地址<font color='red'>(原始地址不存在)</font></th>
+                    )
+                } else {
+                    return(
+                        <th>ANSer候選地址<font color='green'>(原始地址存在)</font></th>
+                    )
+                }
+            } else if (anserObj.type === 'L') {
+                return(
+                    <th>ANSer候選地址<font color='brown'>(這是土地地址)</font></th>
+                )
+            }
+        }
+
         function renderCard() {
 
             var anserItems = anserObj
                 .results
                 .map((item, index) => {
-                    var addr = item.city + item.region + item.village + item.road + item.remainder;
+                    if (anserObj.type === 'P') {
+                        var addr = item.city + item.region + item.village + item.road + item.remainder;
+                    } else if (anserObj.type === 'L') {
+                        var addr = item.city + item.region + item.section + item.subsection + item.land_num;
+                    }
+                    
                     return (
                             <tr><td key={index}>
                                 {addr}
@@ -60,7 +83,7 @@ var Compare = React.createClass({
                         <table className="hover">
                             <thead>
                                 <tr>
-                                    <th>ANSer候選地址</th>
+                                   {checkExist()} 
                                 </tr>
                             </thead>
                             <tbody>
