@@ -39,23 +39,27 @@ var Compare = React.createClass({
         }
 
         function renderCard() {
-
-            var anserItems = anserObj
-                .results
-                .map((item, index) => {
-                    if (anserObj.type === 'P') {
-                        var addr = item.zipcode + item.city + item.region + item.village + item.road + item.remainder;
-                    } else if (anserObj.type === 'L') {
-                        var addr = item.city + item.region + item.section + item.subsection + item.land_num;
-                    }
-                    
-                    return (
-                            <tr><td key={index}>
-                                {addr}
-                            </td></tr>
-                    );
-                });
-
+            if (anserObj.results === undefined) {
+                var anserItems = {
+                    length: 0
+                };
+            }else {
+                var anserItems = anserObj
+                    .results
+                    .map((item, index) => {
+                        if (anserObj.type === 'P') {
+                            var addr = item.zipcode + item.city + item.region + item.village + item.road + item.remainder;
+                        } else if (anserObj.type === 'L') {
+                            var addr = item.city + item.region + item.section + item.subsection + item.land_num;
+                        }
+                        
+                        return (
+                                <tr><td key={index}>
+                                    {addr}
+                                </td></tr>
+                        );
+                    });
+            }
             var googleItems = googleObj
                 .results
                 .map((item, index) => {

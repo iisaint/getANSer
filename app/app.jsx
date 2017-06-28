@@ -5,6 +5,7 @@ var Main = require('Main');
 var Anser = require('Anser');
 var About = require('About');
 var Team = require('Team');
+var Examples = require('Examples');
 
 // Load foundation
 require('style!css!foundation-sites/dist/css/foundation.min.css');
@@ -18,7 +19,8 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={Main}>
       <Route path="about" component={About}/>
-      <Route path="team" component={Team}/>
+      {/*<Route path="team" component={Team}/>*/}
+      <Route path="examples" component={Examples}/>
       <IndexRoute component={Anser}/>
     </Route>
   </Router>,

@@ -46,7 +46,14 @@ var AnserForm = React.createClass({
         this.setState({
             addr: e.target.value
         });
+    },
+    runExample: function(address) {
 
+        this.setState({
+            isLogoShow: false,
+            isSearched: true,
+            addr: address
+        });
     },
     render: function () {
 
