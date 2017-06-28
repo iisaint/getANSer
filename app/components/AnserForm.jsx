@@ -3,9 +3,11 @@ var {Link} = require('react-router');
 
 var AnserForm = React.createClass({
     getInitialState: function () {
+        var {addr} = this.props;
         return {
             isLogoShow: true,
-            isSearched: false
+            isSearched: false,
+            addr: addr
         }
     },
     onFormSumit: function (e) {
@@ -13,7 +15,8 @@ var AnserForm = React.createClass({
 
         this.setState({
             isLogoShow: false,
-            isSearched: true
+            isSearched: true,
+            addr: this.refs.address.value
         });
 
         var address = this.refs.address.value;
@@ -25,13 +28,26 @@ var AnserForm = React.createClass({
     buttonClick: function(e) {
         e.preventDefault();
 
+        this.setState({
+            addr: this.refs.address.value
+        });
+
         var address = this.refs.address.value;
 
         if (address.length > 0) {
             this.props.onCompare(address);
         }
     },
+    handleChange: function(e) {
+        e.preventDefault();
+
+        this.setState({
+            addr: e.target.value
+        });
+
+    },
     render: function () {
+
         var {isLogoShow, isSearched, address} = this.state;
 
         var that = this;
@@ -59,7 +75,7 @@ var AnserForm = React.createClass({
                         </div>
                         <div className="columns medium-8 large-8 small-8"> 
                             <div className="input-group">
-                                <input className="input-group-field" type="search" ref="address" placeholder="請輸入地址 ex 新竹市光復路一段1號"/>
+                                <input className="input-group-field" type="search" ref="address" value={that.state.addr} onChange={that.handleChange} placeholder="請輸入地址 ex 新竹市光復路一段1號"/>
                             <div className="input-group-button">
                                 <button className="button secondary">Get Anser</button>
                             </div>
@@ -73,7 +89,7 @@ var AnserForm = React.createClass({
             } else {
                 return (
                     <div className="columns medium-10 large-10 small-centered">
-                            <input type="search" ref="address" placeholder="請輸入地址 ex 新竹市光復路一段1號"/>
+                            <input type="search" ref="address" value={that.state.addr} onChange={that.handleChange} placeholder="請輸入地址 ex 新竹市光復路一段1號"/>
                         
                         <div className="columns medium-4 large-4 small-centered">
                             <button className="button expanded hollow">Get Anser</button>

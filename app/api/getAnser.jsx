@@ -37,10 +37,10 @@ module.exports = {
     getAnser: function (address) {
         var encodedAddress = encodeURIComponent(address);
         var requestUrl = `${GET_ANSER_URL}${encodedAddress}`;
-        console.log(requestUrl);
+        // console.log(requestUrl);
 
         return axios.get(requestUrl).then(function (res) {
-            console.log(res.data);
+            // console.log(res.data);
             return res.data;
         }, function (res) {
             throw new Error(res.data);
