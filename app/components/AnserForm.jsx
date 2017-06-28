@@ -19,10 +19,12 @@ var AnserForm = React.createClass({
         var address = this.refs.address.value;
 
         if (address.length > 0) {
-            this.props.onSearch(address);
+            this.props.onSubmit(address);
         }
     },
-    buttonClick: function() {
+    buttonClick: function(e) {
+        e.preventDefault();
+
         var address = this.refs.address.value;
 
         if (address.length > 0) {

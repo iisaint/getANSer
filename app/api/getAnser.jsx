@@ -22,9 +22,9 @@ module.exports = {
 
         return axios.all([getAnser(), getGoogle(), getTGOS()])
             .then(axios.spread(function (anser, google, tgos) {
-                console.log('anser = ' + JSON.stringify(anser.data, undefined, 2));
-                console.log('google = ' + JSON.stringify(google.data, undefined, 2))
-                console.log('tgos = ' + JSON.stringify(tgos.data, undefined, 2));
+                // console.log('anser = ' + JSON.stringify(anser.data, undefined, 2));
+                // console.log('google = ' + JSON.stringify(google.data, undefined, 2))
+                // console.log('tgos = ' + JSON.stringify(tgos.data, undefined, 2));
                 return {
                     anser: anser.data,
                     google: google.data,

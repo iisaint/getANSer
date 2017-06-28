@@ -12,6 +12,7 @@ var Anser = React.createClass({
         }
     },
     handleSearch: function (address) {
+        console.log('handleSearch is called');
         var that = this;
         
         this.setState({
@@ -21,7 +22,8 @@ var Anser = React.createClass({
         getAnser.getAnser(address).then(function (anser) {
             that.setState({
                 anser: JSON.stringify(anser, undefined, 2),
-                isLoading: false                
+                isLoading: false,
+                isCompare: false              
             });
         }, function (errorMessage) {
             alert(errorMessage);
@@ -31,6 +33,7 @@ var Anser = React.createClass({
         });
     },
     handleCompare: function (address) {
+        console.log('handleCompare is called');
         var that = this;
         
         this.setState({
@@ -39,7 +42,7 @@ var Anser = React.createClass({
         });
 
         getAnser.getAll(address).then(function (results) {
-            console.log('results = ' + JSON.stringify(results, undefined, 2));
+            // console.log('results = ' + JSON.stringify(results, undefined, 2));
             that.setState({
                 anser: JSON.stringify(results.anser, undefined, 2),
                 google: JSON.stringify(results.google, undefined, 2),
@@ -57,6 +60,7 @@ var Anser = React.createClass({
         var {isLoading, isCompare, anser, google, tgos} = this.state;
 
         function renderMessage () {
+            console.log("iscompare = " + isCompare);
             if (isLoading) {
                 return (
                     <div className="columns medium-10 large-6 small-centered">
@@ -72,7 +76,7 @@ var Anser = React.createClass({
 
         return (
             <div>
-                <AnserForm onSearch={this.handleSearch} onCompare={this.handleCompare}/>
+                <AnserForm onSubmit={this.handleSearch} onCompare={this.handleCompare}/>
                 {renderMessage()}
             </div>
         );
