@@ -51,7 +51,7 @@ var AnserMessage = React.createClass({
             var resultItems = anserObj
                 .results
                 .map((item, index) => {
-                    var addr = item.city + item.region + item.village + item.road + item.remainder;
+                    var addr = item.zipcode + item.city + item.region + item.village + item.road + item.remainder;
                     if (anserObj.results.length == 1) {
                         return (
                             <div key={index} className="columns medium-6 large-6 small-centered">

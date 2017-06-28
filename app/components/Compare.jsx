@@ -44,7 +44,7 @@ var Compare = React.createClass({
                 .results
                 .map((item, index) => {
                     if (anserObj.type === 'P') {
-                        var addr = item.city + item.region + item.village + item.road + item.remainder;
+                        var addr = item.zipcode + item.city + item.region + item.village + item.road + item.remainder;
                     } else if (anserObj.type === 'L') {
                         var addr = item.city + item.region + item.section + item.subsection + item.land_num;
                     }
