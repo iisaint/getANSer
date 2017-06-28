@@ -109,7 +109,7 @@ var AnserMessage = React.createClass({
         }
 
         function renderResult() {
-            if (anserObj.type === 'P') {
+            if (anserObj.type === 'P' && anserObj.results !== undefined) {
                 return (
                     <div className="row">
                         <div className="columns medium-12 large-12 small-12">
@@ -118,7 +118,7 @@ var AnserMessage = React.createClass({
                     </div>
                 )
 
-            } else if (anserObj.type === 'L') {
+            } else if (anserObj.type === 'L' && anserObj.results !== undefined) {
                 var land = anserObj.results[0].city + anserObj.results[0].region + anserObj.results[0].section + anserObj.results[0].subsection + anserObj.results[0].land_num;
                 return (
                     <div className="row">
@@ -151,7 +151,7 @@ var AnserMessage = React.createClass({
                         </div>
                     </div>
                 )
-            } else if (anserObj.type === 'U') {
+            } else if (anserObj.type === 'U' || anserObj.results === undefined) {
                 return (
                     <div className="row">
                         <div className="columns medium-10 large-6 small-centered">
