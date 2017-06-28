@@ -14,8 +14,6 @@ var AnserForm = React.createClass({
         e.preventDefault();
 
         this.setState({
-            isLogoShow: false,
-            isSearched: true,
             addr: this.refs.address.value
         });
 
@@ -23,6 +21,10 @@ var AnserForm = React.createClass({
 
         if (address.length > 0) {
             this.props.onSubmit(address);
+            this.setState({
+                isLogoShow: false,
+                isSearched: true
+            });
         }
     },
     buttonClick: function(e) {
