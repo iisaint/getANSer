@@ -2,7 +2,7 @@ var axios = require('axios');
 
 const GET_ANSER_URL = 'http://localhost:2222/n/';//'http://getanser.com:2222/n/';
 const GET_GOOGLE_URL = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
-const GET_TGOS_URL = 'http://getanser.com:2222/tgos/';
+const GET_TGOS_URL = 'http://localhost:2222/tgos/';//'http://getanser.com:2222/tgos/';
 
 module.exports = {
     getAll: function (address) {
